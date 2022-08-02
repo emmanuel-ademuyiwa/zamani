@@ -27,7 +27,7 @@ const Header = () => {
   }
 
   useEffect(() => {
-    const checkIfClickedOutside = (e:any) => {
+    const checkIfClickedOutside = (e: any) => {
       // If the menu is open and the clicked target is not within the menu,
       // then close the menu
       if (sidenav && ref.current && !ref.current.contains(e.target)) {
@@ -43,7 +43,7 @@ const Header = () => {
 
   return (
     <header>
-      <div ref={ref} className="container mobile">
+      <div className="container mobile">
         <FaBars onClick={() => setSidenav(!sidenav)} className="bar" />
         <Link
           style={{ textDecoration: "none", color: "black" }}
@@ -62,7 +62,7 @@ const Header = () => {
         data-keyboard="false"
         className={sidenav ? "side-nav" : "close-side-nav-bar"}
       >
-        <div className="side-nav-inner">
+        <div ref={ref} className="side-nav-inner">
           <div className="side-nav-header">
             <h5 className="side-nav-title">My account</h5>
             <h6
