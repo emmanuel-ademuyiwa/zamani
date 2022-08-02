@@ -49,9 +49,9 @@ const Shop = () => {
           </div>
           <div className="second-set">
             <img src={neww} alt="" />
+            <img src={bestseller} alt="" />
             <img src={neww} alt="" />
-            <img src={neww} alt="" />
-            <img src={neww} className="last-img" alt="" />
+            <img src={clearance} className="last-img" alt="" />
           </div>
         </div>
       </div>
