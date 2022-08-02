@@ -5,8 +5,8 @@ import {HiOutlineChevronDoubleRight} from 'react-icons/hi'
 
 import sh from "../../images/sh.jpg";
 import neww from "../../images/new.jpeg";
-import bestseller from "../../images/bestseller.jpeg";
-import clearance from "../../images/clearance.jpeg";
+// import bestseller from "../../images/bestseller.jpeg";
+// import clearance from "../../images/clearance.jpeg";
 import dreamy from "../../images/dreamy.jpeg";
 
 const Shop = () => {
@@ -49,9 +49,9 @@ const Shop = () => {
           </div>
           <div className="second-set">
             <img src={neww} alt="" />
-            <img src={bestseller} alt="" />
             <img src={neww} alt="" />
-            <img src={clearance} className="last-img" alt="" />
+            <img src={neww} alt="" />
+            <img src={neww} className="last-img" alt="" />
           </div>
         </div>
       </div>
