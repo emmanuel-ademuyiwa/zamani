@@ -15,6 +15,10 @@ const Header = () => {
   const [sale, setSale] = useState<boolean>(false);
   const [help, setHelp] = useState(false);
 
+  function handleSidenav() {
+    setSidenav(!sidenav);
+  }
+
   function handleClothing() {
     setClothing(!clothing);
   }
@@ -44,7 +48,7 @@ const Header = () => {
   return (
     <header>
       <div className="container mobile">
-        <FaBars onClick={() => setSidenav(!sidenav)} className="bar" />
+        <FaBars onClick={handleSidenav} className="bar" />
         <Link
           style={{ textDecoration: "none", color: "black" }}
           className="no-decoration"
@@ -66,7 +70,7 @@ const Header = () => {
           <div className="side-nav-header">
             <h5 className="side-nav-title">My account</h5>
             <h6
-              onClick={() => setSidenav(!sidenav)}
+              onClick={handleSidenav}
               className="side-nav-login-button"
             >
               Log in <MdArrowForwardIos />
