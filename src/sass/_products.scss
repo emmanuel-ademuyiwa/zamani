@@ -1,0 +1,158 @@
+.products-header {
+  width: 94%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 45px;
+  background: white;
+  z-index: 9;
+  align-items: center;
+  height: 40px;
+
+  .each-section {
+    .each {
+      display: flex;
+      cursor: pointer;
+    }
+
+    .icon {
+      font-size: 18px;
+      font-weight: 100;
+      margin-left: 3px;
+      color: rgba(224, 220, 220, 0.9);
+    }
+    .iconn {
+      font-size: 25px;
+      margin-left: 5px;
+      margin-top: -4px;
+    }
+
+    .bold {
+      font-weight: bold;
+    }
+
+    h6 {
+      font-weight: 400;
+      font-size: 13px;
+    }
+  }
+}
+
+.each-section-show {
+  height: 100vh;
+  top: 83px;
+  position: fixed;
+  width: 94.5%;
+  // border-top: 1px solid white;
+  background: linear-gradient(rgba(4, 9, 30, 0.1), rgba(4, 9, 30, 0.3));
+
+  .sort-list {
+    padding: 10px 0px;
+    width: 101%;
+    background-color: white;
+    transition: 0.5s ease;
+    border-bottom: 0.5px solid rgba(128, 128, 128, 0.4);
+    margin: 0;
+  }
+  .first {
+    padding-top: 20px;
+    border: none !important;
+    margin: 0;
+  }
+
+  h6 {
+    transition: 0.7s ease;
+  }
+}
+
+.short {
+  height: 0px;
+  position: fixed;
+  width: 94.5%;
+  background-color: white;
+  opacity: 0;
+  // transition: 0.2s ease;
+
+  h6 {
+    opacity: 0;
+    font-size: 0px;
+    display: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.header-segments {
+  // border: .5px solid rgba(0, 0, 0, .3);
+  width: 100%;
+  background: white;
+  display: flex;
+  margin-top: 82px;
+  margin-bottom: 5px;
+  padding: 5px 0;
+  overflow-x: scroll;
+
+  .ProductHeaderSection {
+    padding: 7px 20px;
+    background-color: rgba(224, 220, 220, 0.4);
+    margin: 0;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 400;
+    margin-right: 5px;
+  }
+}
+
+.products {
+  display: -ms-grid;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+
+  .product-container {
+    .product {
+      max-width: 250px;
+      min-height: 220px;
+      min-height: 220px;
+      max-height: 220px;
+      background-color: rgb(218, 216, 216);
+      padding: 2px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+
+      img {
+        width: 100%;
+        min-height: 220px;
+        object-fit: cover;
+      }
+
+      .icon-container {
+        position: absolute;
+        top: 180px;
+        right: 5px;
+        font-size: 17px;
+        background-color: white;
+        padding: 1px 5px;
+        border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+
+        .add-to-cart-icon {
+          padding: 0;
+          margin: 0;
+        }
+      }
+    }
+
+    p {
+      font-size: 11px;
+      text-transform: capitalize;
+      margin: 3px 0;
+    }
+
+    .price {
+      font-weight: 600;
+    }
+  }
+}
