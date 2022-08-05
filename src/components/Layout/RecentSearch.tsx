@@ -11,7 +11,7 @@ const RecentSearch = () => {
       <h6 className='light'>Clear All</h6>
     </div>
 
-    <SearchItem />
+    <SearchItem text="Tops" />
     </>
 )
 }

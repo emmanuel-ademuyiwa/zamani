@@ -1,9 +1,13 @@
 import React from 'react'
 
-const SearchItem = () => {
+interface Text{
+  text: string
+}
+
+const SearchItem: React.FC<Text> = ({text}) => {
   return (
     <div className="search-item">
-      Corset Style
+      {text}
     </div>
   )
 }
