@@ -12,24 +12,7 @@ import dreamy from "../../images/dreamy.jpeg";
 const Shop = () => {
   return (
     <div className="container">
-      <div className="shop">
-        <div className="clearance-header">
-          <TiStarburstOutline />
-          <h4>Summer Clearance</h4>
-          <TiStarburstOutline />
-        </div>
-        <div className="up-to">UP TO</div>
-        <h1 className="off">70% OFF</h1>
-        <h6>
-          Shop Now <HiOutlineChevronDoubleRight />
-        </h6>
-        <div className="trees">
-          <GiPalmTree className="left-tree" />
-          <GiPalmTree className="right-tree" />
-          <GiPalmTree className="right-right-tree" />
-        </div>
-        <div className="right-tree"></div>
-      </div>
+      
 
       <div className="category">
         <h4>Shop by Category</h4>
@@ -54,6 +37,24 @@ const Shop = () => {
             <img src={neww} className="last-img" alt="" />
           </div>
         </div>
+      </div>
+      <div className="shop">
+        <div className="clearance-header">
+          <TiStarburstOutline />
+          <h4>Summer Clearance</h4>
+          <TiStarburstOutline />
+        </div>
+        <div className="up-to">UP TO</div>
+        <h1 className="off">70% OFF</h1>
+        <h6>
+          Shop Now <HiOutlineChevronDoubleRight />
+        </h6>
+        <div className="trees">
+          <GiPalmTree className="left-tree" />
+          <GiPalmTree className="right-tree" />
+          <GiPalmTree className="right-right-tree" />
+        </div>
+        <div className="right-tree"></div>
       </div>
     </div>
   );

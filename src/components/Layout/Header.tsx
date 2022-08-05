@@ -6,14 +6,18 @@ import { Link } from "react-router-dom";
 
 import { HiPlusSm } from "react-icons/hi";
 import { MdArrowForwardIos } from "react-icons/md";
+import Search from "./Search";
 
 const Header = () => {
   const ref = useRef<any>();
+  
 
   const [sidenav, setSidenav] = useState(false);
   const [clothing, setClothing] = useState(false);
   const [sale, setSale] = useState<boolean>(false);
-  const [help, setHelp] = useState(false);
+  const [help, setHelp] = useState<boolean>(false);
+  const [search, setSearch] = useState<boolean>(false)
+
 
   function handleSidenav() {
     setSidenav(!sidenav);
@@ -30,6 +34,11 @@ const Header = () => {
     setHelp(!help);
   }
 
+  const handleSearch = () => {
+    setSearch(!search)
+  }
+  
+  
   useEffect(() => {
     const checkIfClickedOutside = (e: any) => {
       // If the menu is open and the clicked target is not within the menu,
@@ -57,7 +66,7 @@ const Header = () => {
           <h4 className="logo">ZAMANI</h4>
         </Link>
         <div className="right-header-content">
-          <CgSearch className="search-icon" />
+          <CgSearch className="search-icon" onClick={handleSearch} />
           <AiOutlineShopping className="cart-icon" />
         </div>
       </div>
@@ -150,6 +159,7 @@ const Header = () => {
           </div>
         </div>
       </div>
+      { search && <Search handlesearch={handleSearch} />}
     </header>
   );
 };
