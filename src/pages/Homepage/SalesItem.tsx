@@ -1,5 +1,5 @@
 import React from "react";
-import dreamy from "../../images/dreamy.jpeg";
+// import dreamy from "../../images/dreamy.jpeg";
 
 interface EachProduct {
   title: string;
