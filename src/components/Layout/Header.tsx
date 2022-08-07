@@ -10,14 +10,12 @@ import Search from "./Search";
 
 const Header = () => {
   const ref = useRef<any>();
-  
 
   const [sidenav, setSidenav] = useState(false);
   const [clothing, setClothing] = useState(false);
   const [sale, setSale] = useState<boolean>(false);
   const [help, setHelp] = useState<boolean>(false);
-  const [search, setSearch] = useState<boolean>(false)
-
+  const [search, setSearch] = useState<boolean>(false);
 
   function handleSidenav() {
     setSidenav(!sidenav);
@@ -35,10 +33,9 @@ const Header = () => {
   }
 
   const handleSearch = () => {
-    setSearch(!search)
-  }
-  
-  
+    setSearch(!search);
+  };
+
   useEffect(() => {
     const checkIfClickedOutside = (e: any) => {
       // If the menu is open and the clicked target is not within the menu,
@@ -78,10 +75,7 @@ const Header = () => {
         <div ref={ref} className="side-nav-inner">
           <div className="side-nav-header">
             <h5 className="side-nav-title">My account</h5>
-            <h6
-              onClick={handleSidenav}
-              className="side-nav-login-button"
-            >
+            <h6 onClick={handleSidenav} className="side-nav-login-button">
               Log in <MdArrowForwardIos />
             </h6>
           </div>
@@ -159,7 +153,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      { search && <Search handlesearch={handleSearch} />}
+      {search && <Search handlesearch={handleSearch} />}
     </header>
   );
 };

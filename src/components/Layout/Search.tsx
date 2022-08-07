@@ -3,7 +3,7 @@ import { MdArrowBackIosNew } from "react-icons/md";
 import { AiOutlineShopping } from "react-icons/ai";
 import { CgSearch } from "react-icons/cg";
 import Trending from "./Trending";
-import RecentSearch from "./RecentSearch";
+// import RecentSearch from "./RecentSearch";
 
 interface SearchProps {
   handlesearch: () => void;

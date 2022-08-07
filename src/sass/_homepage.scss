@@ -149,7 +149,7 @@
   width: 100%;
   padding: 0px;
 
-  h4 { 
+  h4 {
     margin: 40px 0 20px;
     font-weight: 600;
   }
@@ -164,18 +164,31 @@
     }
   }
 
+  .category-text{
+    position: absolute;
+    top: 20%;
+    color: white;
+    max-width: 50px;
+    text-align: center;
+    font-size: 12;
+  }
+
   .first-set {
     display: flex;
     justify-content: space-between;
     width: 100%;
     overflow: hidden;
+    position: relative;
+    
 
     .left-first-set {
       flex: 6;
       margin-right: 10px;
+      position: relative;
 
-      .image-two{ 
+      .image-two {
         margin: 10px 0;
+        position: relative;
       }
     }
 
@@ -192,8 +205,12 @@
     justify-content: space-between;
     overflow: hidden;
 
-    img { 
+    img {
       margin-right: 10px;
+      object-fit: cover;
+      min-width: 80px;
+      max-width: 80px;
+      height: 100px;
     }
 
     .last-img {
@@ -202,19 +219,19 @@
   }
 }
 
-.sales{
+.sales {
   width: 100%;
   padding: 0px;
 
-  .sales-header { 
+  .sales-header {
     margin: 40px 0 20px;
 
-    h4{
+    h4 {
       margin: 0;
       font-weight: 600;
     }
 
-    p { 
+    p {
       font-size: 11px;
       font-weight: 300;
       padding: 0;
@@ -222,19 +239,30 @@
     }
   }
 
-  .item-list{
+  .item-list {
     display: flex;
     overflow-x: auto;
 
-    .sales-item{
+    .sales-item {
       margin-right: 10px;
 
-      .img-container{
+      .img-container {
         background-color: #efefef;
         padding: 10px;
+        position: relative;
+
+        h6 {
+          position: absolute;
+          font-size: 12px;
+          background-color: red;
+          color: white;
+          padding: 1px 5px;
+          top: 0;
+          left: 0;
+        }
       }
 
-      img { 
+      img {
         object-fit: cover;
         width: 70px;
         height: 100px;
@@ -245,11 +273,27 @@
         text-transform: capitalize;
         margin: 3px 0;
       }
-  
+
       .price {
         font-weight: 600;
         color: red;
       }
+      .former-price {
+        margin-top: -5px;
+        font-weight: 600;
+        color: grey;
+        text-decoration:line-through;
+      }
     }
+  }
+
+  .item-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge add Firefox */
+  .item-list {
+    -ms-overflow-style: none;
+    scrollbar-width: none; /* Firefox */
   }
 }
