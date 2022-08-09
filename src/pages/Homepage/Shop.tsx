@@ -24,7 +24,7 @@ const Shop = () => {
               <div className="image-two">
                 <div className="cont">
                   <img src={sh} alt="" />
-                  <h6 className="category-text">Dresses</h6>
+                  <h6 className="category-text yellow-bg">Dresses</h6>
                 </div>
               </div>
             </div>
