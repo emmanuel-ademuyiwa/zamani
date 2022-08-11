@@ -7,9 +7,26 @@ import { Link } from "react-router-dom";
 import { HiPlusSm } from "react-icons/hi";
 import { MdArrowForwardIos } from "react-icons/md";
 import Search from "./Search";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const ref = useRef<any>();
+  const cart = useSelector((state:any) => state.shop.cart)
+
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
+
+  useEffect(() => {
+    let items = 0;
+    let price = 0;
+    cart.forEach((item:any) => {
+      items += item.qty;
+      price += item.qty * item.price;
+    });
+
+    setTotalItems(items);
+    setTotalPrice(price);
+  }, [cart, totalPrice, totalItems, setTotalItems, setTotalPrice]);
 
   const [sidenav, setSidenav] = useState(false);
   const [clothing, setClothing] = useState(false);
@@ -65,6 +82,9 @@ const Header = () => {
         <div className="right-header-content">
           <CgSearch className="search-icon" onClick={handleSearch} />
           <AiOutlineShopping className="cart-icon" />
+          <div className="cart-count">
+            <p>{totalItems}</p>
+          </div>
         </div>
       </div>
       <div

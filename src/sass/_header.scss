@@ -44,6 +44,35 @@ header {
 
   .right-header-content {
     justify-content: space-between;
+
+    .cart-count {
+      margin: 0;
+      padding: 5px;
+      background-color: black;
+      color: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 9px;
+      right: 10px;
+      font-size: 8px;
+      font-weight: 700;
+      width: 13px;
+      height: 13px;
+      // min-width: 10px;
+      // min-height: 13px;
+      // max-height: 13px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      justify-items: center;
+
+      p { 
+        margin: 0;
+        padding: 0;
+      }
+  
+    }
   }
 }
 .no-decoration {
@@ -170,7 +199,6 @@ header {
   transition: all 0.5s ease;
   visibility: hidden;
 
-
   ul {
     display: none;
   }
@@ -197,35 +225,35 @@ header {
   width: 100%;
   height: 100vh;
 
-  .search-header{
+  .search-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: .5px solid #808080;
+    border-bottom: 0.5px solid #808080;
     padding: 10px 20px;
 
-    h6{
+    h6 {
       align-items: centers;
       padding: 0;
       margin: 0;
     }
   }
 
-  .search-body{
+  .search-body {
     padding: 10px 20px;
 
-    .search-body-input{
+    .search-body-input {
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      .text { 
+      .text {
         flex: 8;
         margin-top: 10px;
         margin-right: 5px;
         border-bottom: 1px solid black;
 
-        input{
+        input {
           width: 100%;
           border: none;
           outline: none;
@@ -239,12 +267,12 @@ header {
       justify-content: space-between;
       margin: 15px 0;
 
-      .light{
+      .light {
         font-weight: 300;
       }
     }
 
-    .search-item{
+    .search-item {
       padding: 7px 17px;
       // border: 1px solid rgba(128, 128, 128, .1);
       width: fit-content;
@@ -253,10 +281,10 @@ header {
       font-weight: 500;
       margin: 5px;
       display: inline-block;
-      background-color: rgba(128, 128, 128, .1);
+      background-color: rgba(128, 128, 128, 0.1);
     }
 
-    .trending{
+    .trending {
       margin-top: 30px;
     }
   }

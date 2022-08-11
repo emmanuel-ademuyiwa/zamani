@@ -3,6 +3,9 @@ import Layout from "../../components/Layout/Layout";
 import Product from "./Product";
 import ProductHeader from "./ProductHeader";
 import axios from "axios";
+import { useSelector } from "react-redux";
+// import DisplayItem from "./DisplayItem";
+
 
 interface EachProduct {
   key: number;
@@ -10,11 +13,23 @@ interface EachProduct {
   title: string;
   image: string;
   price: number;
+  
+  item: {
+    id: number;
+    title: string;
+    image: string;
+    price: number;
+  };
 }
 
 const Products = () => {
+  const [cartitem, setCartitem] = useState(false)
+  const products = useSelector((state:any) => state.shop.products)
+  const [data, setData] = useState<EachProduct[]>(products)
 
-  const [data, setData] = useState<EachProduct[]>([])
+  function handleCartitem() {
+    setCartitem(!cartitem)
+  }
 
   useEffect(() => {
     axios.get('https://fakestoreapi.com/products')
@@ -28,17 +43,20 @@ const Products = () => {
       <div className="container">
         <ProductHeader />
         <div className="products">
-          {data.map((product) => (
+          {data.map((item) => (
             <Product
-              id={product.id}
-              key={product.id}
-              title={product.title}
-              price={product.price}
-              image={product.image}
+              item={item}
+              id={item.id}
+              key={item.id}
+              title={item.title}
+              price={item.price}
+              image={item.image}
+              handleCartitem={handleCartitem}
             />
           ))}
         </div>
       </div>
+      {/* <DisplayItem handleCartitem={handleCartitem} cartitem={cartitem} /> */}
     </Layout>
   );
 };

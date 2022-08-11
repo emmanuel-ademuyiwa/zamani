@@ -11,7 +11,7 @@ const SectionList = () => {
     <div className="container homepage">
       <div className="section-list">
         <div className="section">
-          <Link className="no-decoration" to="products">
+          <Link className="no-decoration" to="/products">
             <div className="img">
               <img src={sh} alt="" />
             </div>
@@ -19,7 +19,7 @@ const SectionList = () => {
           </Link>
         </div>
         <div className="section">
-          <Link className="no-decoration" to="products">
+          <Link className="no-decoration" to="/products">
             <div className="img">
               <img src={neww} alt="" />
             </div>
@@ -27,7 +27,7 @@ const SectionList = () => {
           </Link>
         </div>
         <div className="section">
-          <Link className="no-decoration" to="products">
+          <Link className="no-decoration" to="/products">
             <div className="img">
               <img src={bestseller} alt="" />
             </div>
@@ -35,7 +35,7 @@ const SectionList = () => {
           </Link>
         </div>
         <div className="section">
-          <Link className="no-decoration" to="products">
+          <Link className="no-decoration" to="/products">
             <div className="img">
               <img src={clearance} alt="" />
             </div>
@@ -43,7 +43,7 @@ const SectionList = () => {
           </Link>
         </div>
         <div className="section">
-          <Link className="no-decoration" to="products">
+          <Link className="no-decoration" to="/products">
             <div className="img">
               <img src={dreamy} alt="" />
             </div>
