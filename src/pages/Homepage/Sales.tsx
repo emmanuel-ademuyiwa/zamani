@@ -8,6 +8,7 @@ interface EachProduct {
   title: string;
   image: string;
   price: number;
+  
 }
 
 const Sales = () => {
@@ -29,7 +30,8 @@ const Sales = () => {
         <div className="item-list">
           {data.map((data) => (
             <SalesItem
-            key={data.id}
+              key={data.id}
+              item={data}
             title={data.title}
             price={data.price}
             image={data.image}
