@@ -17,7 +17,6 @@ interface DisplayProp {
 
 const DisplayItem = ({ cartitem, handleCartitem, item }: DisplayProp) => {
   const currentItem = useSelector((state: any) => state.shop.currentItem);
-  console.log(currentItem);
   const { title, description, price, image } = currentItem;
 
   return (
