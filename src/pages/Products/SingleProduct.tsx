@@ -1,23 +1,13 @@
-import React, {useState} from "react";
+import React from "react";
 import Layout from "../../components/Layout/Layout";
 import AddToCart from "./AddToCart";
 import Size from "./Size";
-import { addToCart } from "../../redux/shopping/actions";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-interface Props {
-  item: {
-    id: number;
-    title: string;
-    image: string;
-    price: number;
-    description: string;
-  };
-}
 
 const SingleProduct = () => {
   const currentItem = useSelector((state:any) => state.shop.currentItem);
-  const { title, description, price, image } = currentItem;
+  const { title, price, image } = currentItem;
   
   return (
     <Layout>

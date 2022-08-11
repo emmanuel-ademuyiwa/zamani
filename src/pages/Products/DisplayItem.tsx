@@ -1,9 +1,8 @@
 import React from "react";
 import AddToCart from "./AddToCart";
 import { FaTimes } from "react-icons/fa";
-import bestseller from "../../images/sh.jpg";
 import Size from "./Size";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 
 interface DisplayProp {
@@ -20,7 +19,7 @@ interface DisplayProp {
 const DisplayItem = ({ cartitem, handleCartitem, item }: DisplayProp) => {
 
       const currentItem = useSelector((state: any) => state.shop.currentItem);
-      const { title, description, price, image } = currentItem;
+      const { title, price, image } = currentItem;
   
 
   return (
@@ -30,7 +29,7 @@ const DisplayItem = ({ cartitem, handleCartitem, item }: DisplayProp) => {
       >
         <div className="container">
           <FaTimes className="cancel" onClick={handleCartitem} />
-          <AddToCart item={item} />
+          <AddToCart item={currentItem} />
 
           <div className="details">
             <h4>Product detail</h4>
