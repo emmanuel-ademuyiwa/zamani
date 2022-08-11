@@ -227,16 +227,23 @@
         h6 {
           padding: 0;
           margin: 0;
-          font-size: 15px;
+          font-size: 16px;
         }
         .title {
           text-transform: capitalize;
           line-height: 20px;
+          font-weight: 600;
         }
 
         .price {
+          font-weight: 500;
+          font-size: 14px;
+          margin: 10px 0;
+        }
+
+        .desc {
           font-weight: 300;
-          font-size: 13px;
+          font-size: 12px;
           margin: 10px 0;
         }
       }
@@ -294,16 +301,23 @@
   h6 {
     padding: 0;
     margin: 0;
-    font-size: 15px;
+    font-size: 16px;
   }
   .title {
     text-transform: capitalize;
     line-height: 20px;
+    font-weight: 600;
   }
 
   .price {
+    font-weight: 500;
+    font-size: 14px;
+    margin: 10px 0;
+  }
+
+  .desc {
     font-weight: 300;
-    font-size: 13px;
+    font-size: 12px;
     margin: 10px 0;
   }
 }

@@ -4,7 +4,6 @@ import { FaTimes } from "react-icons/fa";
 import Size from "./Size";
 import { useSelector } from "react-redux";
 
-
 interface DisplayProp {
   cartitem: boolean;
   handleCartitem: () => void;
@@ -17,10 +16,9 @@ interface DisplayProp {
 }
 
 const DisplayItem = ({ cartitem, handleCartitem, item }: DisplayProp) => {
-
-      const currentItem = useSelector((state: any) => state.shop.currentItem);
-      const { title, price, image } = currentItem;
-  
+  const currentItem = useSelector((state: any) => state.shop.currentItem);
+  console.log(currentItem);
+  const { title, description, price, image } = currentItem;
 
   return (
     <div className={cartitem ? "display-item" : "close-display-item"}>
@@ -29,7 +27,7 @@ const DisplayItem = ({ cartitem, handleCartitem, item }: DisplayProp) => {
       >
         <div className="container">
           <FaTimes className="cancel" onClick={handleCartitem} />
-          <AddToCart item={currentItem} />
+          <AddToCart item={item} />
 
           <div className="details">
             <h4>Product detail</h4>
@@ -41,6 +39,7 @@ const DisplayItem = ({ cartitem, handleCartitem, item }: DisplayProp) => {
             </div>
             <div className="more-details">
               <h6 className="title">{title}</h6>
+              <h6 className="desc">{description}</h6>
               <h6 className="price">NGN ₦{price}</h6>
             </div>
             <Size />

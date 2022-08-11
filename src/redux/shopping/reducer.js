@@ -44,7 +44,7 @@ const INITIAL_STATE = {
         }
     ],  // {id, title, desc, price}
     cart: [], // {id, title, desc, price, qty}
-    currentItem: null,
+    currentItem: {},
     address: false,
     delivery: false
 }
