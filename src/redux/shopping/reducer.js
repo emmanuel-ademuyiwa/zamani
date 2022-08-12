@@ -45,6 +45,7 @@ const INITIAL_STATE = {
     ],  // {id, title, desc, price}
     cart: [], // {id, title, desc, price, qty}
     currentItem: {},
+    size: null,
     address: false,
     delivery: false
 }
@@ -57,24 +58,28 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
             // Check if the item is already in the cart
             const inCart = state.cart.find(item => item.id === action.payload.id ? true : false)
             return {
-                ...state,
-                cart: inCart ? state.cart.map(
-                        item => item.id === action.payload.id ? 
-                        {...item, qty: item.qty + 1} : 
-                    item 
-                ) : 
-                [...state.cart, {...action.payload, qty: 1}]
-            }
+              ...state,
+              cart: inCart
+                ? state.cart.map((item) =>
+                    item.id === action.payload.id
+                      ? { ...item, qty: item.qty + 1 }
+                      : item
+                  )
+                : [
+                    ...state.cart,
+                    { ...action.payload, qty: 1, size: state.size },
+                  ],
+            };
         case actionTypes.REMOVE_FROM_CART:
             return {
                 ...state,
-                cart: state.cart.filter(item => item.id !== action.payload.id)
+                cart: state.cart.filter(item => item.id !== action.payload)
             }
         case actionTypes.INCREASE_ITEM:
             return {
                 ...state,
                 cart: state.cart.map(
-                    item => item.id === action.payload.id ? 
+                    item => item.id === action.payload ? 
                     {...item, qty: item.qty + 1} 
                     : 
                     item
@@ -84,7 +89,7 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 cart: state.cart.map(
-                    item => item.id === action.payload.id ? 
+                    item => item.id === action.payload ? 
                     {...item, qty: item.qty - 1} 
                     : 
                     item
@@ -95,6 +100,12 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 currentItem: action.payload
+            }
+        
+        case actionTypes.GET_SIZE:
+            return { 
+                ...state,
+                size: action.payload
             }
         
         default:

@@ -26,7 +26,7 @@ const DisplayItem = ({ cartitem, handleCartitem, item }: DisplayProp) => {
       >
         <div className="container">
           <FaTimes className="cancel" onClick={handleCartitem} />
-          <AddToCart item={item} />
+          <AddToCart item={item}/>
 
           <div className="details">
             <h4>Product detail</h4>

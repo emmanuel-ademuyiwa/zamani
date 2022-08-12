@@ -4,6 +4,7 @@ const actionTypes = {
   DECREASE_ITEM: "DECREASE_ITEM",
   REMOVE_FROM_CART: "REMOVE_FROM_CART",
   LOAD_CURRENT_ITEM: "LOAD_CURRENT_ITEM",
+  GET_SIZE: "GET_SIZE"
 };
 
 export default actionTypes

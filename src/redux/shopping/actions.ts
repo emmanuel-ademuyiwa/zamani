@@ -16,12 +16,19 @@ export const removeFromCart = (productID:number) => {
     }
 }
 
-export const increaseItem = (productID:any) => {
+export const increaseItem = (productID:number) => {
     return { 
         type: actionTypes.INCREASE_ITEM,
         payload: productID
     }
 }
+
+export const decreaseItem = (productID: number) => {
+  return {
+    type: actionTypes.DECREASE_ITEM,
+    payload: productID,
+  };
+};
 
 export const loadCurrentItem = (product:any) => {
   return {
@@ -29,3 +36,10 @@ export const loadCurrentItem = (product:any) => {
     payload: product,
   };
 };
+
+export const getSize = (itemSize:string) => { 
+    return {
+        type: actionTypes.GET_SIZE,
+        payload: itemSize
+    }
+}

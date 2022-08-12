@@ -4,7 +4,7 @@ import { AiOutlineShopping } from "react-icons/ai";
 import { CgSearch } from "react-icons/cg";
 import Trending from "./Trending";
 import { useSelector } from "react-redux";
-
+import {Link} from 'react-router-dom'
 // import RecentSearch from "./RecentSearch";
 
 interface SearchProps {
@@ -34,7 +34,9 @@ const Search: React.FC<SearchProps> = ({ handlesearch }) => {
       <div className="search-header">
         <MdArrowBackIosNew onClick={handlesearch} />
         <h6>Search</h6>
-        <AiOutlineShopping className="cart-icon" />
+        <Link to="/cart" style={{ textDecoration: "none", color: "black" }}>
+          <AiOutlineShopping className="cart-icon" />
+        </Link>
         <div className="cart-count">
           <p>{totalItems}</p>
         </div>

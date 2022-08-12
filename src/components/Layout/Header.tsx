@@ -81,7 +81,9 @@ const Header = () => {
         </Link>
         <div className="right-header-content">
           <CgSearch className="search-icon" onClick={handleSearch} />
-          <AiOutlineShopping className="cart-icon" />
+          <Link style={{textDecoration: 'none', color: "black"}} to="/cart">
+            <AiOutlineShopping className="cart-icon" />
+          </Link>
           <div className="cart-count">
             <p>{totalItems}</p>
           </div>
