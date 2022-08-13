@@ -45,7 +45,7 @@ const INITIAL_STATE = {
   ], // {id, title, desc, price}
   cart: [], // {id, title, desc, price, qty}
   currentItem: {},
-  size: [],
+  size: "null",
   sizeList: [
     {
       size: "XS",
@@ -124,6 +124,12 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
         size: action.payload,
       };
 
+    case actionTypes.DROP_SIZE:
+      return {
+        ...state,
+        size: action.payload,
+      };
+
     case actionTypes.DISPLAY_ITEM:
       return {
         ...state,
@@ -133,12 +139,20 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cart: state.cart.map((item) =>
-          item.id === action.payload
-            ? { ...item, size: state.size }
-            : item
+          item.id === action.payload ? { ...item, size: state.size } : item
         ),
       };
-
+    case actionTypes.CHECK_ADDRESS:
+      return {
+        ...state,
+        address: true,
+      };
+    case actionTypes.CHECK_DELIVERY:
+      return {
+        ...state,
+        address: true,
+        delivery: true,
+      };
     default:
       return state;
   }

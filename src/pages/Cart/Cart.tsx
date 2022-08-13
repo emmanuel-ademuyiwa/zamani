@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../../components/Layout/Layout";
 // import DisplayItem from "../Products/DisplayItem";
-import { displayItem, loadCurrentItem } from "../../redux/shopping/actions";
+// import { displayItem, loadCurrentItem } from "../../redux/shopping/actions";
 import { useDispatch, useSelector } from "react-redux";
 import {
   AiFillPlusCircle,

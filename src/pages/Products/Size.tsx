@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getSize } from "../../redux/shopping/actions";
 import SizeDetail from "./SizeDetail";
 
@@ -11,8 +11,8 @@ const Size = () => {
   const [xl, setXL] = useState(false);
 
   const dispatch = useDispatch();
-  const sizeData = useSelector((state: any) => state.shop.sizeList);
-  console.log(sizeData);
+  // const sizeData = useSelector((state: any) => state.shop.sizeList);
+  // console.log(sizeData);
 
   function handleXS() {
     setXS(!xs);

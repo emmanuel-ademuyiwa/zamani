@@ -1,6 +1,6 @@
 import React from "react";
-import { addToCart } from "../../redux/shopping/actions";
-import { useDispatch } from "react-redux";
+import { addToCart, dropSize } from "../../redux/shopping/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 interface Props {
   item: {
@@ -11,13 +11,28 @@ interface Props {
   };
 }
 
-const AddToCart = ({item}: Props) => {
+const AddToCart = ({ item }: Props) => {
   const dispatch = useDispatch();
+  const size = useSelector((state: any) => state.shop.size);
 
   return (
-    <div className="add-to-cart" onClick={() => dispatch(addToCart(item))}>
-      <h6>add to cart</h6>
-    </div>
+    <>
+      {size === "null" ? (
+        <div className="add-to-cart">
+          <h6>add to cart</h6>
+          <div className="picksize">pick a size</div>
+        </div>
+      ) : (
+        <div
+          className="add-to-cart"
+          onClick={() => {
+            dispatch(addToCart(item));
+          }}
+        >
+          <h6>add to cart</h6>
+        </div>
+      )}
+    </>
   );
 };
 

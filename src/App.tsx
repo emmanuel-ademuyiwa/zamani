@@ -7,6 +7,7 @@ import ScrollToTheTop from "./components/ScrollToTop";
 import SingleProduct from "./pages/Products/SingleProduct";
 import { useSelector } from "react-redux";
 import Cart from "./pages/Cart/Cart";
+import Checkout from "./pages/Checkout/Checkout";
 
 function App() {
     const currentItem = useSelector((state:any) => state.shop.currentItem);
@@ -23,6 +24,7 @@ function App() {
               element={!currentItem ? <Navigate to="/" /> : <SingleProduct />}
             />
             <Route path="cart" element={<Cart />} />
+            <Route path="checkout" element={<Checkout />} />
           </Routes>
         </ScrollToTheTop>
       </BrowserRouter>
