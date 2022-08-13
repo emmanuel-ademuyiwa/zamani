@@ -176,7 +176,8 @@
   top: 0px;
   background: linear-gradient(rgba(4, 9, 30, 0.4), rgba(4, 9, 30, 0.4));
   z-index: 9999;
-  margin-left: -12px;
+  margin-left: -11px;
+  // transition: 0.5s ease;
 
   .display-container {
     position: relative;
@@ -331,8 +332,8 @@
   height: 60px;
   margin: 0px;
 
-  &:active{
-    transform: scale(.98);
+  &:active {
+    transform: scale(0.98);
   }
 
   h6 {
@@ -401,3 +402,5 @@
     }
   }
 }
+
+

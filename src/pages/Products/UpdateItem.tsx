@@ -1,10 +1,12 @@
 import React from "react";
-import AddToCart from "./AddToCart";
+// import AddToCart from "./AddToCart";
 import { FaTimes } from "react-icons/fa";
 import Size from "./Size";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { updateCart } from "../../redux/shopping/actions";
 
 interface DisplayProp {
+    id:number
   cartitem: boolean;
   handleCartitem: () => void;
   item: {
@@ -15,9 +17,9 @@ interface DisplayProp {
   };
 }
 
-const DisplayItem = ({ cartitem, handleCartitem, item }: DisplayProp) => {
+const UpdateItem = ({ cartitem, handleCartitem, item, id }: DisplayProp) => {
   const currentItem = useSelector((state: any) => state.shop.currentItem);
-  // const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const { title, description, price, image } = currentItem;
 
   return (
@@ -27,7 +29,15 @@ const DisplayItem = ({ cartitem, handleCartitem, item }: DisplayProp) => {
       >
         <div className="container">
           <FaTimes className="cancel" onClick={handleCartitem} />
-          <AddToCart item={item} />
+          <div
+            className="add-to-cart"
+            onClick={() => {
+              dispatch(updateCart(item.id));
+              console.log(id);
+            }}
+          >
+            <h6>update cart</h6>
+          </div>
 
           <div className="details">
             <h4>Product detail</h4>
@@ -50,4 +60,4 @@ const DisplayItem = ({ cartitem, handleCartitem, item }: DisplayProp) => {
   );
 };
 
-export default DisplayItem;
+export default UpdateItem;

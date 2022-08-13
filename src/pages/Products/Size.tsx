@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getSize } from "../../redux/shopping/actions";
 import SizeDetail from "./SizeDetail";
 
@@ -11,6 +11,8 @@ const Size = () => {
   const [xl, setXL] = useState(false);
 
   const dispatch = useDispatch();
+  const sizeData = useSelector((state: any) => state.shop.sizeList);
+  console.log(sizeData);
 
   function handleXS() {
     setXS(!xs);
@@ -62,6 +64,7 @@ const Size = () => {
         >
           xs
         </h6>
+
         <h6 className={s ? "each-size active" : "each-size"} onClick={handleS}>
           s
         </h6>
@@ -85,6 +88,9 @@ const Size = () => {
       {l && <SizeDetail text="30.7inch / 78cm" size="l" />}
       {xl && <SizeDetail text="32.7inch / 83cm" size="xl" />}
       {/* <SizeDetail text="25.6inch / 65cm" /> */}
+      {/* {sizeData.map((size: any) => (
+         <SizeDetail key={size.size} text={''} size={size.size} />
+      ))} */}
     </div>
   );
 };

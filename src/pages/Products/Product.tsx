@@ -21,12 +21,13 @@ interface EachProduct {
 }
 
 const Product = ({ title, image, price, item }: EachProduct) => {
+    // const display = useSelector((state: any) => state.shop.display);
   const [cartitem, setCartitem] = useState(false);
   const dispatch = useDispatch();
 
   function handleCartitem() {
     setCartitem(!cartitem);
-    dispatch(loadCurrentItem(item));
+    dispatch(loadCurrentItem(item))
   }
 
   return (

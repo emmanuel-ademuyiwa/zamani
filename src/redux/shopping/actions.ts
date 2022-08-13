@@ -43,3 +43,16 @@ export const getSize = (itemSize:string) => {
         payload: itemSize
     }
 }
+
+export const displayItem = () => {
+  return {
+    type: actionTypes.DISPLAY_ITEM,
+  };
+};
+
+export const updateCart = (itemID:number) => { 
+  return {
+    type: actionTypes.UPDATE_CART,
+    payload: itemID
+  }
+}
