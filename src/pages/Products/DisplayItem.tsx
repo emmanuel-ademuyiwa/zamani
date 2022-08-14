@@ -5,8 +5,8 @@ import Size from "./Size";
 import { useSelector } from "react-redux";
 
 interface DisplayProp {
+  closeModal: () => void;
   cartitem: boolean;
-  handleCartitem: () => void;
   item: {
     id: number;
     title: string;
@@ -15,7 +15,11 @@ interface DisplayProp {
   };
 }
 
-const DisplayItem = ({ cartitem, handleCartitem, item }: DisplayProp) => {
+const DisplayItem = ({
+  cartitem,
+  item,
+  closeModal,
+}: DisplayProp) => {
   const currentItem = useSelector((state: any) => state.shop.currentItem);
   // const dispatch = useDispatch()
   const { title, description, price, image } = currentItem;
@@ -26,8 +30,8 @@ const DisplayItem = ({ cartitem, handleCartitem, item }: DisplayProp) => {
         className={cartitem ? "display-container" : "close-display-container"}
       >
         <div className="container">
-          <FaTimes className="cancel" onClick={handleCartitem} />
-          <AddToCart item={item} />
+          <FaTimes className="cancel" onClick={closeModal} />
+          <AddToCart item={item} closeModal={closeModal} />
 
           <div className="details">
             <h4>Product detail</h4>

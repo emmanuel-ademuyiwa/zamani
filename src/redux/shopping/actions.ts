@@ -73,3 +73,9 @@ export const checkDelivery = () => {
     type: actionTypes.CHECK_DELIVERY,
   };
 };
+
+export const handleModal = () => { 
+  return { 
+    type: actionTypes.CLOSE_MODAL
+  }
+}

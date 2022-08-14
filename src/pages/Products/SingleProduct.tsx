@@ -1,13 +1,22 @@
-import React from "react";
+import React, { useState} from "react";
 import Layout from "../../components/Layout/Layout";
 import AddToCart from "./AddToCart";
 import Size from "./Size";
 import { useSelector } from "react-redux";
 
+interface Props {
+  handleModal: () => void;
+}
+
 const SingleProduct = () => {
   const currentItem = useSelector((state: any) => state.shop.currentItem);
   const { title, price, image, description } = currentItem;
+  const modal = useSelector((state: any) => state.shop.modal);
+  const [cartitem, setCartitem] = useState(modal);
 
+    function closeModal() {
+      setCartitem(false);
+    }
   return (
     <Layout>
       <div className="single-product">
@@ -23,7 +32,7 @@ const SingleProduct = () => {
           <Size />
         </div>
 
-        <AddToCart item={currentItem} />
+        {/* <AddToCart item={currentItem} closeModal={closeModal} /> */}
       </div>
     </Layout>
   );

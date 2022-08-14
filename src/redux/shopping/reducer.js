@@ -71,6 +71,7 @@ const INITIAL_STATE = {
   address: false,
   delivery: false,
   display: false,
+  modal: false,
 };
 
 export const shopReducer = (state = INITIAL_STATE, action) => {
@@ -152,6 +153,11 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
         ...state,
         address: true,
         delivery: true,
+      };
+    case actionTypes.CLOSE_MODAL:
+      return {
+        ...state,
+        modal: false,
       };
     default:
       return state;

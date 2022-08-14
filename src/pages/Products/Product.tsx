@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import DisplayItem from "./DisplayItem";
-import { loadCurrentItem } from "../../redux/shopping/actions";
-import { useDispatch } from "react-redux";
+import { loadCurrentItem, handleModal } from "../../redux/shopping/actions";
+import { useDispatch, useSelector } from "react-redux";
 
 interface EachProduct {
   key: number;
@@ -21,13 +21,17 @@ interface EachProduct {
 }
 
 const Product = ({ title, image, price, item }: EachProduct) => {
-    // const display = useSelector((state: any) => state.shop.display);
-  const [cartitem, setCartitem] = useState(false);
+  const modal = useSelector((state: any) => state.shop.modal);
+  const [cartitem, setCartitem] = useState(modal);
   const dispatch = useDispatch();
 
   function handleCartitem() {
     setCartitem(!cartitem);
-    dispatch(loadCurrentItem(item))
+    dispatch(loadCurrentItem(item));
+  }
+
+  function closeModal() {
+    setCartitem(false);
   }
 
   return (
@@ -43,20 +47,13 @@ const Product = ({ title, image, price, item }: EachProduct) => {
           </div>
         </div>
         <Link className="no-decoration" to={`/detail/${title}`}>
-          <p
-            className="title"
-            onClick={() => dispatch(loadCurrentItem(item))}
-          >
+          <p className="title" onClick={() => dispatch(loadCurrentItem(item))}>
             {title.slice(0, 23)}..
           </p>
         </Link>
         <p className="price">NGN ₦{price}</p>
       </div>
-      <DisplayItem
-        handleCartitem={handleCartitem}
-        cartitem={cartitem}
-        item={item}
-      />
+      <DisplayItem closeModal={closeModal} cartitem={cartitem} item={item} />
     </>
   );
 };

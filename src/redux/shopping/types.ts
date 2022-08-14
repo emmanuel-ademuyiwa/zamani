@@ -10,6 +10,7 @@ const actionTypes = {
   UPDATE_CART: "UPDATE_CART",
   CHECK_ADDRESS: "CHECK_ADDRESS",
   CHECK_DELIVERY: "CHECK_DELIVERY",
+  CLOSE_MODAL: "CLOSD_MODAL"
 };
 
 export default actionTypes
