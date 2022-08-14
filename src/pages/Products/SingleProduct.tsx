@@ -32,7 +32,7 @@ const SingleProduct = () => {
           <Size />
         </div>
 
-        {/* <AddToCart item={currentItem} closeModal={closeModal} /> */}
+        <AddToCart item={currentItem} closeModal={closeModal} />
       </div>
     </Layout>
   );
