@@ -1,4 +1,12 @@
 import React from "react";
+import {
+  FaWhatsappSquare,
+  FaInstagramSquare,
+  FaTwitterSquare,
+  FaFacebookSquare,
+  FaCcVisa,
+  FaCcMastercard,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -15,20 +23,44 @@ const Footer = () => {
           </div>
         </div>
         <div className="main-footer">
-          <div className="container">
+          <div className="">
             <h1 className="logo">Zamani</h1>
             <ul>
               <li>About Us</li>
-              <li>Lorem, ipsum dolor.</li>
-              <li>Lorem, ipsum.</li>
-              <li>Lorem, ipsum dolor.</li>
+              <li>Track My Order</li>
+              <li>Sizing Help</li>
+              <li>Shopping & Delivery</li>
+              <li>Return & Refunds</li>
+              <li>FAQ & Contact Us</li>
+              <li>Privacy policy</li>
+              <li>Terms of Service</li>
+              <li>Paymemt Method</li>
               <li>
-                <p>
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                  Voluptates magni aperiam, molestiae velit suscipit sit.
-                </p>
+                <div className="container">
+                  <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Voluptates magni aperiam, molestiae velit suscipit sit.
+                  </p>
+                </div>
               </li>
               <li>Email Us</li>
+              <li className="social-section">
+                <p>Follow Us</p>
+                <div className="social-icons">
+                  <FaInstagramSquare className="icon" />
+                  <FaWhatsappSquare className="icon" />
+                  <FaTwitterSquare className="icon" />
+                  <FaFacebookSquare className="icon" />
+                </div>
+              </li>
+              <li>
+                Payment Methods
+                <div className="payment-icons">
+                  <FaCcVisa className="payment" />
+                  
+                  <FaCcMastercard />
+                </div>
+              </li>
             </ul>
           </div>
         </div>

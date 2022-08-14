@@ -31,7 +31,7 @@ const SectionList = () => {
             <div className="img">
               <img src={bestseller} alt="" />
             </div>
-            <h6>Bestseller</h6>
+            <h6>Curve</h6>
           </Link>
         </div>
         <div className="section">

@@ -7,6 +7,13 @@ export const addToCart = (product: any) => {
   };
 };
 
+export const getRemoveFromCartId = (itemId:number) => {
+  return {
+    type: actionTypes.GET_REMOVE_FROM_CART_ID,
+    payload: itemId
+  };
+};
+
 export const removeFromCart = (productID: number) => {
   return {
     type: actionTypes.REMOVE_FROM_CART,

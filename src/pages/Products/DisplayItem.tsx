@@ -10,7 +10,10 @@ interface DisplayProp {
   item: {
     id: number;
     title: string;
-    image: string;
+    image1: string;
+    image2: string;
+    image3: string;
+    image4: string;
     price: number;
   };
 }
@@ -22,7 +25,8 @@ const DisplayItem = ({
 }: DisplayProp) => {
   const currentItem = useSelector((state: any) => state.shop.currentItem);
   // const dispatch = useDispatch()
-  const { title, description, price, image } = currentItem;
+  const { title, description, price, image1, image2, image3, image4 } =
+    currentItem;
 
   return (
     <div className={cartitem ? "display-item" : "close-display-item"}>
@@ -36,10 +40,10 @@ const DisplayItem = ({
           <div className="details">
             <h4>Product detail</h4>
             <div className="image-container">
-              <img src={image} alt="" />
-              <img src={image} alt="" />
-              <img src={image} alt="" />
-              <img src={image} alt="" />
+              <img src={image1} alt="" />
+              <img src={image2} alt="" />
+              <img src={image3} alt="" />
+              <img src={image4} alt="" />
             </div>
             <div className="more-details">
               <h6 className="title">{title}</h6>

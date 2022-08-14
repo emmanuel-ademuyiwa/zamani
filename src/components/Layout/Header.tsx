@@ -11,7 +11,7 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const ref = useRef<any>();
-  const cart = useSelector((state:any) => state.shop.cart)
+  const cart = useSelector((state: any) => state.shop.cart);
 
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
@@ -19,7 +19,7 @@ const Header = () => {
   useEffect(() => {
     let items = 0;
     let price = 0;
-    cart.forEach((item:any) => {
+    cart.forEach((item: any) => {
       items += item.qty;
       price += item.qty * item.price;
     });
@@ -81,7 +81,7 @@ const Header = () => {
         </Link>
         <div className="right-header-content">
           <CgSearch className="search-icon" onClick={handleSearch} />
-          <Link style={{textDecoration: 'none', color: "black"}} to="/cart">
+          <Link style={{ textDecoration: "none", color: "black" }} to="/cart">
             <AiOutlineShopping className="cart-icon" />
           </Link>
           <div className="cart-count">
@@ -103,15 +103,18 @@ const Header = () => {
           </div>
           <div className="side-nav-body">
             <ul>
-              <li>
-                <h6>Homepage</h6>
-              </li>
-              <li>
-                <h6>New New</h6>
-              </li>
-              <li>
-                <h6>Wishlist</h6>
-              </li>
+              <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+                {" "}
+                <li>
+                  <h6>Homepage</h6>
+                </li>
+              </Link>
+              <Link to="/" style={{ textDecoration: "none", color: "black" }}>
+                <li>
+                  <h6>New New</h6>
+                </li>
+              </Link>
+
               <li>
                 <>
                   <div className="flex-nav">
@@ -119,9 +122,13 @@ const Header = () => {
                     <HiPlusSm className="icon" onClick={handleClothing} />
                   </div>
                   <div className={clothing ? "single-list" : "no-width"}>
-                    <h6>List one</h6>
-                    <h6>List 2</h6>
-                    <h6>List three</h6>
+                    <h6>Dresses</h6>
+                    <h6>Kimonos</h6>
+                    <h6>Palazos</h6>
+                    <h6>Shorts</h6>
+                    <h6>Tops</h6>
+                    <h6>Jumpsuits</h6>
+                    <h6>Jackets</h6>
                   </div>
                 </>
               </li>
@@ -129,17 +136,20 @@ const Header = () => {
               <li>
                 <>
                   <div className="flex-nav">
-                    <h6>Sale</h6>
+                    <h6>Sales</h6>
                     <HiPlusSm className="icon" onClick={handleSale} />
                   </div>
                   <div className={sale ? "single-list" : "no-width"}>
-                    <h6>List one</h6>
-                    <h6>List 2</h6>
-                    <h6>List three</h6>
+                    <h6>All Sales</h6>
+                    <h6>Suumer Clearance</h6>
                   </div>
                 </>
               </li>
-
+              <li>
+                <h6 style={{ marginTop: "10px", marginBottom: "15px" }}>
+                  Wishlist
+                </h6>
+              </li>
               <li>
                 <>
                   <div className="flex-nav">
@@ -147,9 +157,8 @@ const Header = () => {
                     <HiPlusSm className="icon" onClick={handleHelp} />
                   </div>
                   <div className={help ? "single-list" : "no-width"}>
-                    <h6>List one</h6>
-                    <h6>List 2</h6>
-                    <h6>List three</h6>
+                    <h6>About Us</h6>
+                    <h6>FAQ & Contact Us</h6>
                   </div>
                 </>
               </li>

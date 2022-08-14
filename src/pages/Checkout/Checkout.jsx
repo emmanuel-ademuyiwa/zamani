@@ -86,7 +86,7 @@ const Checkout = () => {
                     <div className="cartItemDetails black">
                       <h6 className="black">{cart.title}</h6>
                       <div className="flex">
-                        <h6>${cart.price * cart.qty}</h6>
+                        <h6>₦{cart.price * cart.qty}</h6>
                         <h6>Qty: {cart.qty}</h6>
                       </div>
                     </div>
@@ -95,7 +95,7 @@ const Checkout = () => {
               </div>
               <div className="cartTotal">
                 <h5>Total items: {totalItems}</h5>
-                <h5>Total price: {totalPrice.toFixed(2)}</h5>
+                <h5>Total price: ₦{totalPrice.toFixed(2)}</h5>
               </div>
 
               <div className="checkoutButton black">

@@ -7,30 +7,47 @@ import { loadCurrentItem } from "../../redux/shopping/actions";
 
 interface EachProduct {
   title: string;
-  image: string;
+  image1: string;
+  formerPrice: number;
   price: number;
+  saleDiscount: string;
   item: {
     id: number;
     title: string;
-    image: string;
+    image1: string;
+    formerPrice: number;
     price: number;
+    saleDiscount: string;
   };
 }
 
-const SalesItem = ({ title, image, price, item }: EachProduct) => {
-  const dispatch = useDispatch()
+const SalesItem = ({
+  title,
+  image1,
+  formerPrice,
+  price,
+  saleDiscount,
+  item,
+}: EachProduct) => {
+  const dispatch = useDispatch();
 
   return (
-    <Link style={{textDecoration: 'none', color: "black"}} to={`/detail/${title}`}>
-      <div className="sales-item" onClick={() => dispatch(loadCurrentItem(item))}>
+    <Link
+      style={{ textDecoration: "none", color: "black" }}
+      to={`/detail/${title}`}
+    >
+      <div
+        className="sales-item"
+        onClick={() => dispatch(loadCurrentItem(item))}
+      >
         <div className="img-container">
-          <img src={image} alt="" />
-          <h6>-50%</h6>
+          <img src={image1} alt="" />
+          <h6>{saleDiscount}</h6>
         </div>
         <div className="description-container">
           <p className="title">{title.slice(0, 11)}...</p>
           <p className="price">NGN ₦{price}</p>
-          <p className="former-price">NGN ₦{price * 2}</p>
+          <p className="former-price">NGN ₦{formerPrice}</p>
         </div>
       </div>
     </Link>

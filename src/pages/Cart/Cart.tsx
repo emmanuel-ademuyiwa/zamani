@@ -12,6 +12,7 @@ import {
   removeFromCart,
   increaseItem,
   decreaseItem,
+  getRemoveFromCartId,
 } from "../../redux/shopping/actions";
 import { Link } from "react-router-dom";
 import { TiArrowSortedDown } from "react-icons/ti";
@@ -23,6 +24,8 @@ const Cart = () => {
 
   //   const display = useSelector((state: any) => state.shop.display);
   const [cartitem, setCartitem] = useState(false);
+  const [removeItem, setRemoveItem] = useState(false);
+  const removeId = useSelector((state: any) => state.shop.removeItemId);
 
   // function handleCartitem() {
   //   setCartitem(!cartitem);
@@ -43,6 +46,10 @@ const Cart = () => {
     setTotalItems(items);
     setTotalPrice(price);
   }, [cart, totalPrice, totalItems, setTotalItems, setTotalPrice]);
+
+  function handleRemoveCartItem() {
+    setRemoveItem(true);
+  }
 
   return (
     <Layout>
@@ -66,10 +73,14 @@ const Cart = () => {
                   <div className="cartTitle">
                     <div className="title">
                       <h6 className="black">{item.title.slice(0, 21)} ..</h6>
-                      <h6>${item.qty * item.price.toFixed(2)}</h6>
+                      <h6>₦{item.qty * item.price.toFixed(2)}</h6>
                     </div>
+
                     <AiOutlineDelete
-                      onClick={() => dispatch(removeFromCart(item.id))}
+                      onClick={() => {
+                        setRemoveItem(true);
+                        dispatch(getRemoveFromCartId(item.id));
+                      }}
                       className="icon red"
                     />
                   </div>
@@ -105,7 +116,7 @@ const Cart = () => {
             <h4>Cart Summary</h4>
             <div className="cartTotal">
               <h5>Subtotal</h5>
-              <h5>{totalPrice.toFixed(2)}</h5>
+              <h5>₦{totalPrice.toFixed(2)}</h5>
             </div>
             {cart.length >= 1 && (
               <div className="checkoutButton black">
@@ -117,6 +128,27 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      {removeItem && (
+        <div className="confirm-delete">
+          <div className="inner-frame">
+            <h6>Are you sure you want to remove this product?</h6>
+            <div className="button-container">
+              <button className="cancel" onClick={() => setRemoveItem(false)}>
+                Cancel
+              </button>
+              <button
+                className="confirm"
+                onClick={() => {
+                  dispatch(removeFromCart(removeId));
+                  setRemoveItem(false);
+                }}
+              >
+                Confirm
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </Layout>
   );
 };

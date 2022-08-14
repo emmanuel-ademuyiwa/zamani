@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineShopping } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import DisplayItem from "./DisplayItem";
-import { loadCurrentItem, handleModal } from "../../redux/shopping/actions";
+import { loadCurrentItem } from "../../redux/shopping/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 interface EachProduct {
@@ -14,7 +14,10 @@ interface EachProduct {
   item: {
     id: number;
     title: string;
-    image: string;
+    image1: string;
+    image2: string;
+    image3: string;
+    image4: string;
     price: number;
   };
   handleCartitem: () => void;

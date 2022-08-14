@@ -46,6 +46,7 @@ const INITIAL_STATE = {
   cart: [], // {id, title, desc, price, qty}
   currentItem: {},
   size: "null",
+  removeItemId: null,
   sizeList: [
     {
       size: "XS",
@@ -97,6 +98,11 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         cart: state.cart.filter((item) => item.id !== action.payload),
+      };
+    case actionTypes.GET_REMOVE_FROM_CART_ID:
+      return {
+        ...state,
+        removeItemId: action.payload,
       };
     case actionTypes.INCREASE_ITEM:
       return {

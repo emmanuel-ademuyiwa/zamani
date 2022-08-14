@@ -6,16 +6,17 @@ interface EachProduct {
   key: number;
   id: number;
   title: string;
-  image: string;
+  image1: string;
+  formerPrice: number;
   price: number;
-  
+  saleDiscount: string;
 }
 
 const Sales = () => {
   const [data, setData] = useState<EachProduct[]>([]);
 
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products").then((res) => {
+    axios.get("https://thenelson.pythonanywhere.com/api/sales/").then((res) => {
       setData(res.data);
     });
   }, []);
@@ -32,12 +33,13 @@ const Sales = () => {
             <SalesItem
               key={data.id}
               item={data}
-            title={data.title}
-            price={data.price}
-            image={data.image}
+              title={data.title}
+              formerPrice={data.formerPrice}
+              price={data.price}
+              saleDiscount={data.saleDiscount}
+              image1={data.image1}
             />
           ))}
-
         </div>
       </div>
     </div>

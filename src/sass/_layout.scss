@@ -7,7 +7,7 @@
     display: block;
 
     .about-zamani {
-      background-color: #F6F4E7;
+      background-color: #f6f4e7;
       padding: 40px 0;
 
       h1 {
@@ -22,7 +22,7 @@
       }
     }
     .main-footer {
-      background-color: #EEE2DD;
+      background-color: #eee2dd;
       padding: 40px 0;
       text-align: center;
 
@@ -41,16 +41,43 @@
         list-style: none;
         width: 100%;
 
-        li { 
-            font-size: 11px;
-            padding: 5px 0;
-            text-align: center;
+        li {
+          font-size: 11px;
+          padding: 5px 0;
+          text-align: center;
 
-            p { 
-              margin: 20px 0;
-            }
+          p {
+            margin: 20px 0;
+          }
         }
       }
     }
+  }
+}
+
+.social-section {
+  margin: 10px 0;
+  padding: 5px 0;
+  border-top: 1px solid grey;
+  border-bottom: 1px solid black;
+
+  p { 
+    margin: 10px!important;
+  }
+
+  .social-icons {
+    font-size: 21px;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 15px;
+  }
+}
+.payment-icons {
+  display: flex;
+  justify-content: center;
+
+  .payment { 
+    margin-right: 10px;
   }
 }
