@@ -34,7 +34,6 @@ const Products = () => {
   useEffect(() => {
     axios.get("https://thenelson.pythonanywhere.com/api/products/").then((res) => {
       setData(res.data);
-      console.log(res.data);
     });
   }, [])
 

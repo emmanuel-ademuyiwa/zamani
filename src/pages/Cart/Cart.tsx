@@ -67,7 +67,7 @@ const Cart = () => {
                   id={item.id}
                 />
                 <div className="cartItemImg">
-                  <img src={item.image} alt="" />
+                  <img src={item.image1} alt="" />
                 </div>
                 <div className="cartItemDetails black">
                   <div className="cartTitle">

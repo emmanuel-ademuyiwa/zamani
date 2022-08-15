@@ -33,7 +33,6 @@ const UpdateItem = ({ cartitem, handleCartitem, item, id }: DisplayProp) => {
             className="add-to-cart"
             onClick={() => {
               dispatch(updateCart(item.id));
-              console.log(id);
             }}
           >
             <h6>update cart</h6>
