@@ -84,13 +84,14 @@ const ProductHeader = () => {
         </div>
       </div>
       <div className="header-segments">
-        <ProductHeaderSection text="Dresses" />
-        <ProductHeaderSection text="Kimonos" />
-        <ProductHeaderSection text="Palazos" />
-        <ProductHeaderSection text="Shorts" />
-        <ProductHeaderSection text="Tops" />
-        <ProductHeaderSection text="Jumpsuits" />
-        <ProductHeaderSection text="Jackets" />
+        <ProductHeaderSection search="" text="All" />
+        <ProductHeaderSection search="Dresses" text="Dresses" />
+        <ProductHeaderSection search="Kimonos" text="Kimonos" />
+        <ProductHeaderSection search="Palazos" text="Palazos" />
+        <ProductHeaderSection search="Shorts" text="Shorts" />
+        <ProductHeaderSection search="Tops" text="Tops" />
+        <ProductHeaderSection search="Jumpsuits" text="Jumpsuits" />
+        <ProductHeaderSection search="Jackets" text="Jackets" />
       </div>
     </div>
   );

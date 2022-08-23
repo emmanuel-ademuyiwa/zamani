@@ -4,13 +4,20 @@ import neww from "../../images/new.jpeg";
 import bestseller from "../../images/bestseller.jpeg";
 import clearance from "../../images/clearance.jpeg";
 import dreamy from "../../images/dreamy.jpeg";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; 
+import { useDispatch } from "react-redux";
+
+import { getSearch } from "../../redux/shopping/actions";
+
 
 const SectionList = () => {
+
+  const dispatch = useDispatch()
+
   return (
     <div className="container homepage">
       <div className="section-list">
-        <div className="section">
+        <div className="section" onClick={() => dispatch(getSearch(""))}>
           <Link className="no-decoration" to="/products">
             <div className="img">
               <img src={sh} alt="" />

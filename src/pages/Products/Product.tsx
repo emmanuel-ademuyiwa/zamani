@@ -51,10 +51,10 @@ const Product = ({ title, image, price, item }: EachProduct) => {
         </div>
         <Link className="no-decoration" to={`/detail/${title}`}>
           <p className="title" onClick={() => dispatch(loadCurrentItem(item))}>
-            {title.slice(0, 23)}..
+            {title}
           </p>
         </Link>
-        <p className="price">NGN ₦{price}</p>
+        <p className="price">NGN ₦{price.toLocaleString()}</p>
       </div>
       <DisplayItem closeModal={closeModal} cartitem={cartitem} item={item} />
     </>

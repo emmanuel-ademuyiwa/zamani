@@ -12,6 +12,7 @@ const actionTypes = {
   CHECK_ADDRESS: "CHECK_ADDRESS",
   CHECK_DELIVERY: "CHECK_DELIVERY",
   CLOSE_MODAL: "CLOSD_MODAL",
+  GET_SEARCH: "GET_SEARCH"
 };
 
 export default actionTypes

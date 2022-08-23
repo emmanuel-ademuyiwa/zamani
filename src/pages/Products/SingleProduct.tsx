@@ -6,18 +6,6 @@ import { useSelector } from "react-redux";
 import { Slide } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
-const slideImages = [
-  {
-    url: require("../../images/sh.jpg"),
-  },
-  {
-    url: require("../../images/sh2.jpg"),
-  },
-  {
-    url: require("../../images/sh3.jpg"),
-  },
-];
-
 const SingleProduct = () => {
   const currentItem = useSelector((state: any) => state.shop.currentItem);
   const { title, description, price, image1, image2, image3, image4 } =
@@ -63,7 +51,7 @@ const SingleProduct = () => {
           <div className="">
             <h6 className="title">{title}</h6>
             <h6 className="desc">{description}</h6>
-            <h6 className="price">NGN ₦{price}</h6>
+            <h6 className="price">NGN ₦{price.toLocaleString()}</h6>
           </div>
           <Size />
         </div>

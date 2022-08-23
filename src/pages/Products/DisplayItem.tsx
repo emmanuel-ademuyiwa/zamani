@@ -48,7 +48,7 @@ const DisplayItem = ({
             <div className="more-details">
               <h6 className="title">{title}</h6>
               <h6 className="desc">{description}</h6>
-              <h6 className="price">NGN ₦{price}</h6>
+              <h6 className="price">NGN ₦{price.toLocaleString()}</h6>
             </div>
             <Size />
           </div>

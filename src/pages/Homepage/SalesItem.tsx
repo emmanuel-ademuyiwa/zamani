@@ -8,23 +8,20 @@ import { loadCurrentItem } from "../../redux/shopping/actions";
 interface EachProduct {
   title: string;
   image1: string;
-  formerPrice: number;
   price: number;
-  saleDiscount: string;
+  saleDiscount: number;
   item: {
     id: number;
     title: string;
     image1: string;
-    formerPrice: number;
     price: number;
-    saleDiscount: string;
+    saleDiscount: number;
   };
 }
 
 const SalesItem = ({
   title,
   image1,
-  formerPrice,
   price,
   saleDiscount,
   item,
@@ -42,12 +39,12 @@ const SalesItem = ({
       >
         <div className="img-container">
           <img src={image1} alt="" />
-          <h6>{saleDiscount}</h6>
+          <h6>{saleDiscount}%</h6>
         </div>
         <div className="description-container">
-          <p className="title">{title.slice(0, 11)}...</p>
-          <p className="price">NGN ₦{price}</p>
-          <p className="former-price">NGN ₦{formerPrice}</p>
+          <p className="title">{title}</p>
+          <p className="price">NGN ₦{(price - (saleDiscount / 100) * price).toLocaleString()}</p>
+          <p className="former-price">NGN ₦{price.toLocaleString()}</p>
         </div>
       </div>
     </Link>

@@ -72,8 +72,10 @@ const Cart = () => {
                 <div className="cartItemDetails black">
                   <div className="cartTitle">
                     <div className="title">
-                      <h6 className="black">{item.title.slice(0, 21)} ..</h6>
-                      <h6>₦{item.qty * item.price.toFixed(2)}</h6>
+                      <h6 className="black">{item.title}</h6>
+                      <h6>
+                        ₦{(item.qty * item.price.toFixed(2)).toLocaleString()}
+                      </h6>
                     </div>
 
                     <AiOutlineDelete
@@ -116,7 +118,7 @@ const Cart = () => {
             <h4>Cart Summary</h4>
             <div className="cartTotal">
               <h5>Subtotal</h5>
-              <h5>₦{totalPrice.toFixed(2)}</h5>
+              <h5>₦{totalPrice.toLocaleString()}</h5>
             </div>
             {cart.length >= 1 && (
               <div className="checkoutButton black">

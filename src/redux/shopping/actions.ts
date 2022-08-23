@@ -86,3 +86,10 @@ export const handleModal = () => {
     type: actionTypes.CLOSE_MODAL
   }
 }
+
+export const getSearch = (search:string) => { 
+  return { 
+    type: actionTypes.GET_SEARCH,
+    payload: search
+  }
+}

@@ -7,16 +7,64 @@ interface EachProduct {
   id: number;
   title: string;
   image1: string;
-  formerPrice: number;
   price: number;
-  saleDiscount: string;
+  saleDiscount: number;
 }
 
 const Sales = () => {
-  const [data, setData] = useState<EachProduct[]>([]);
+  const [data, setData] = useState<EachProduct[]>([
+    {
+      key: 1,
+      id: 1,
+      title: "",
+      image1: " ",
+      price: 0,
+      saleDiscount: 0,
+    },
+    {
+      key: 2,
+      id: 2,
+      title: "",
+      image1: " ",
+      price: 0,
+      saleDiscount: 0,
+    },
+    {
+      key: 3,
+      id: 3,
+      title: "",
+      image1: " ",
+      price: 0,
+      saleDiscount: 0,
+    },
+    {
+      key: 4,
+      id: 4,
+      title: "",
+      image1: " ",
+      price: 0,
+      saleDiscount: 0,
+    },
+    {
+      key: 5,
+      id: 5,
+      title: "",
+      image1: " ",
+      price: 0,
+      saleDiscount: 0,
+    },
+    {
+      key: 6,
+      id: 6,
+      title: "",
+      image1: " ",
+      price: 0,
+      saleDiscount: 0,
+    },
+  ]);
 
   useEffect(() => {
-    axios.get("https://thenelson.pythonanywhere.com/api/sales/").then((res) => {
+    axios.get("http://127.0.0.1:8000/api/sales/").then((res) => {
       setData(res.data);
     });
   }, []);
@@ -34,7 +82,6 @@ const Sales = () => {
               key={data.id}
               item={data}
               title={data.title}
-              formerPrice={data.formerPrice}
               price={data.price}
               saleDiscount={data.saleDiscount}
               image1={data.image1}

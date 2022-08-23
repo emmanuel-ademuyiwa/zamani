@@ -47,6 +47,8 @@ const INITIAL_STATE = {
   currentItem: {},
   size: "null",
   removeItemId: null,
+  search: "",
+  
   sizeList: [
     {
       size: "XS",
@@ -165,6 +167,11 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
         ...state,
         modal: false,
       };
+    case actionTypes.GET_SEARCH:
+      return {
+        ...state,
+        search: action.payload
+      }
     default:
       return state;
   }

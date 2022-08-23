@@ -210,7 +210,9 @@
   .second-set {
     display: flex;
     justify-content: space-between;
+    width: 100%;
     overflow: hidden;
+    position: relative;
 
     img {
       margin-right: 10px;
@@ -254,8 +256,8 @@
       margin-right: 10px;
 
       .img-container {
-        background-color: #efefef;
-        padding: 10px;
+        background-color: rgba(224, 220, 220, 0.4);
+        width: 90px;
         position: relative;
 
         h6 {
@@ -264,14 +266,18 @@
           background-color: red;
           color: white;
           padding: 1px 5px;
-          top: 0;
-          left: 0;
+          top: 5px;
+          left: 5px;
+          border-radius: 3px;
+          display: flex;
+          align-items: center;
+          font-weight: 600;
         }
       }
 
       img {
         object-fit: cover;
-        width: 70px;
+        width: 100%;
         height: 100px;
       }
 
@@ -285,6 +291,7 @@
         font-weight: 600;
         color: red;
       }
+
       .former-price {
         margin-top: -5px;
         font-weight: 600;
@@ -302,5 +309,50 @@
   .item-list {
     -ms-overflow-style: none;
     scrollbar-width: none; /* Firefox */
+  }
+}
+
+@media (min-width: 412px) {
+  .second-set {
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      min-width: 90px !important;
+      max-width: 100px;
+      height: 100px;
+    }
+  }
+}
+
+@media (min-width: 540px) {
+  .first-set {
+
+    img { 
+      height: 120px!important;
+    }
+
+    .right-first-set {
+      img { 
+      height: 250px!important;
+    }
+    }
+  }
+
+  .second-set {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    img {
+      object-fit: cover;
+      min-width: 120px !important;
+      max-width: 100px;
+      height: 170px !important;
+    }
   }
 }
