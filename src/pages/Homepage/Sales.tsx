@@ -64,9 +64,11 @@ const Sales = () => {
   ]);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:8000/api/sales/").then((res) => {
-      setData(res.data);
-    });
+    axios
+      .get("https://thenelson.pythonanywhere.com/api/sales/")
+      .then((res) => {
+        setData(res.data);
+      });
   }, []);
 
   return (
