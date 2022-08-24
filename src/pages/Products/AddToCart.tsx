@@ -1,5 +1,5 @@
 import React from "react";
-import { addToCart, handleModal } from "../../redux/shopping/actions";
+import { addToCart } from "../../redux/shopping/actions";
 import { useDispatch, useSelector } from "react-redux";
 
 interface Props {

@@ -39,7 +39,7 @@ const SalesItem = ({
       >
         <div className="img-container">
           <img src={image1} alt="" />
-          <h6>{saleDiscount}%</h6>
+          <h6>-{saleDiscount}%</h6>
         </div>
         <div className="description-container">
           <p className="title">{title}</p>

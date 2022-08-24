@@ -5,25 +5,28 @@ import DisplayItem from "./DisplayItem";
 import { loadCurrentItem } from "../../redux/shopping/actions";
 import { useDispatch, useSelector } from "react-redux";
 
-interface EachProduct {
-  key: number;
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  item: {
-    id: number;
-    title: string;
-    image1: string;
-    image2: string;
-    image3: string;
-    image4: string;
-    price: number;
-  };
-  handleCartitem: () => void;
-}
+// interface EachProduct {
+//   key: number;
+//   id: number;
+//   title: string;
+//   image: string;
+//   price: number;
 
-const Product = ({ title, image, price, item }: EachProduct) => {
+//   item: {
+//     id: number;
+//     title: string;
+//     image1: string;
+//     image2: string;
+//     image3: string;
+//     image4: string;
+//     price: number;
+//     show: boolean;
+//   };
+//   show: boolean;
+//   handleCartitem: () => void;
+// }
+
+const Product = ({ title, image, price, item, show }: any) => {
   const modal = useSelector((state: any) => state.shop.modal);
   const [cartitem, setCartitem] = useState(modal);
   const dispatch = useDispatch();
@@ -56,7 +59,7 @@ const Product = ({ title, image, price, item }: EachProduct) => {
         </Link>
         <p className="price">NGN ₦{price.toLocaleString()}</p>
       </div>
-      <DisplayItem closeModal={closeModal} cartitem={cartitem} item={item} />
+     { show ? "" : <DisplayItem closeModal={closeModal} cartitem={cartitem} item={item} />}
     </>
   );
 };

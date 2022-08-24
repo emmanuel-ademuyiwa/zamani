@@ -48,7 +48,7 @@ const INITIAL_STATE = {
   size: "null",
   removeItemId: null,
   search: "",
-  
+
   sizeList: [
     {
       size: "XS",
@@ -71,6 +71,7 @@ const INITIAL_STATE = {
       text: "32.7inch / 83cm",
     },
   ],
+  productApi: "https://thenelson.pythonanywhere.com/api/products/?search=",
   address: false,
   delivery: false,
   display: false,

@@ -6,31 +6,30 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 // import DisplayItem from "./DisplayItem";
 
+// interface EachProduct {
+//   key: number;
+//   id: number;
+//   title: string;
+//   image: string;
+//   price: number;
 
-interface EachProduct {
-  key: number;
-  id: number;
-  title: string;
-  image: string;
-  price: number;
-  
-  item: {
-    id: number;
-    title: string;
-    image: string;
-    price: number;
-  };
-}
+//   item: {
+//     id: number;
+//     title: string;
+//     image: string;
+//     price: number;
+//   };
+// }
 
 const Products = () => {
-  const [cartitem, setCartitem] = useState(false)
-  const products = useSelector((state:any) => state.shop.products)
-  const [data, setData] = useState(products)
+  const [cartitem, setCartitem] = useState(false);
+  const products = useSelector((state: any) => state.shop.products);
+  const [data, setData] = useState(products);
 
-  const search = useSelector((state:any) => state.shop.search)
+  const search = useSelector((state: any) => state.shop.search);
 
   function handleCartitem() {
-    setCartitem(!cartitem)
+    setCartitem(!cartitem);
   }
 
   useEffect(() => {
@@ -41,7 +40,7 @@ const Products = () => {
       .then((res) => {
         setData(res.data);
       });
-  }, [search])
+  }, [search]);
 
   return (
     <Layout>
@@ -62,8 +61,8 @@ const Products = () => {
             ))}
           </div>
         ) : (
-          <div className="products" style={{marginTop: "70px"}}>
-            <h4 style={{fontSize: "16px"}}>Product not available</h4>
+          <div className="products" style={{ marginTop: "70px" }}>
+            <h4 style={{ fontSize: "16px" }}>Product not available</h4>
           </div>
         )}
       </div>

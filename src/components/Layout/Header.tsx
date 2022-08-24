@@ -7,10 +7,12 @@ import { Link } from "react-router-dom";
 import { HiPlusSm } from "react-icons/hi";
 import { MdArrowForwardIos } from "react-icons/md";
 import Search from "./Search";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getSearch } from "../../redux/shopping/actions";
 
 const Header = () => {
   const ref = useRef<any>();
+  const dispatch = useDispatch();
   const cart = useSelector((state: any) => state.shop.cart);
 
   const [totalPrice, setTotalPrice] = useState(0);
@@ -118,17 +120,103 @@ const Header = () => {
               <li>
                 <>
                   <div className="flex-nav">
-                    <h6 className="first">Clothing</h6>
+                    <h6 className="first" onClick={handleClothing}>
+                      Clothing
+                    </h6>
                     <HiPlusSm className="icon" onClick={handleClothing} />
                   </div>
                   <div className={clothing ? "single-list" : "no-width"}>
-                    <h6>Dresses</h6>
-                    <h6>Kimonos</h6>
-                    <h6>Palazos</h6>
-                    <h6>Shorts</h6>
-                    <h6>Tops</h6>
-                    <h6>Jumpsuits</h6>
-                    <h6>Jackets</h6>
+                    <Link
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/products"
+                    >
+                      <h6
+                        onClick={() => {
+                          dispatch(getSearch("dresses"));
+                          setSidenav(!sidenav);
+                        }}
+                      >
+                        Dresses
+                      </h6>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/products"
+                    >
+                      <h6
+                        onClick={() => {
+                          dispatch(getSearch("Kimonos"));
+                          setSidenav(!sidenav);
+                        }}
+                      >
+                        Kimonos
+                      </h6>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/products"
+                    >
+                      <h6
+                        onClick={() => {
+                          dispatch(getSearch("Palazos"));
+                          setSidenav(!sidenav);
+                        }}
+                      >
+                        Palazos
+                      </h6>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/products"
+                    >
+                      <h6
+                        onClick={() => {
+                          dispatch(getSearch("Shorts"));
+                          setSidenav(!sidenav);
+                        }}
+                      >
+                        Shorts
+                      </h6>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/products"
+                    >
+                      <h6
+                        onClick={() => {
+                          dispatch(getSearch("Tops"));
+                          setSidenav(!sidenav);
+                        }}
+                      >
+                        Tops
+                      </h6>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/products"
+                    >
+                      <h6
+                        onClick={() => {
+                          dispatch(getSearch("Jumpsuits"));
+                          setSidenav(!sidenav);
+                        }}
+                      >
+                        Jumpsuits
+                      </h6>
+                    </Link>
+                    <Link
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/products"
+                    >
+                      <h6
+                        onClick={() => {
+                          dispatch(getSearch("Jackets"));
+                          setSidenav(!sidenav);
+                        }}
+                      >
+                        Jackets
+                      </h6>
+                    </Link>
                   </div>
                 </>
               </li>
@@ -136,11 +224,23 @@ const Header = () => {
               <li>
                 <>
                   <div className="flex-nav">
-                    <h6>Sales</h6>
+                    <h6 onClick={handleSale}>Sales</h6>
                     <HiPlusSm className="icon" onClick={handleSale} />
                   </div>
                   <div className={sale ? "single-list" : "no-width"}>
-                    <h6>All Sales</h6>
+                    <Link
+                      style={{ textDecoration: "none", color: "black" }}
+                      to="/sales"
+                    >
+                      <h6
+                        onClick={() => {
+                          dispatch(getSearch(""));
+                          setSidenav(!sidenav);
+                        }}
+                      >
+                        All
+                      </h6>
+                    </Link>
                     <h6>Suumer Clearance</h6>
                   </div>
                 </>

@@ -4,7 +4,9 @@ import { AiOutlineShopping } from "react-icons/ai";
 import { CgSearch } from "react-icons/cg";
 import Trending from "./Trending";
 import { useDispatch, useSelector } from "react-redux";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import { FaTimes } from "react-icons/fa";
+
 import { getSearch } from "../../redux/shopping/actions";
 import Product from "../../pages/Products/Product";
 // import RecentSearch from "./RecentSearch";
@@ -18,38 +20,39 @@ const Search: React.FC<SearchProps> = ({ handlesearch }) => {
   const cart = useSelector((state: any) => state.shop.cart);
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
-  const dispatch = useDispatch()
-  const search = useSelector((state: any) => state.shop.search)
+  const dispatch = useDispatch();
+  const search = useSelector((state: any) => state.shop.search);
 
-  console.log(search)
-    const [cartitem, setCartitem] = useState(false);
-  const [searchData, setSearchData] = useState([
-    
-  ]);
-  console.log(searchData.length)
+  const [show, setShow] = useState(true)
+
+  const [cartitem, setCartitem] = useState(false);
+  const [searchData, setSearchData] = useState([]);
+
   function handleCartitem() {
     setCartitem(!cartitem);
   }
 
-   useEffect(() => {
-     let items = 0;
-     let price = 0;
-     cart.forEach((item: any) => {
-       items += item.qty;
-       price += item.qty * item.price;
-     });
+  useEffect(() => {
+    let items = 0;
+    let price = 0;
+    cart.forEach((item: any) => {
+      items += item.qty;
+      price += item.qty * item.price;
+    });
 
-     setTotalItems(items);
-     setTotalPrice(price);
-   }, [cart, totalPrice, totalItems, setTotalItems, setTotalPrice]);
+    setTotalItems(items);
+    setTotalPrice(price);
+  }, [cart, totalPrice, totalItems, setTotalItems, setTotalPrice]);
 
-    useEffect(() => {
-      axios
-        .get(`http://127.0.0.1:8000/api/products/?search=${search}`)
-        .then((res) => {
-          setSearchData(res.data);
-        });
-    }, [search]);
+  useEffect(() => {
+    axios
+      .get(
+        `https://thenelson.pythonanywhere.com/api/products/?search=${search}`
+      )
+      .then((res) => {
+        setSearchData(res.data);
+      });
+  }, [search]);
 
   return (
     <div className="search">
@@ -75,25 +78,37 @@ const Search: React.FC<SearchProps> = ({ handlesearch }) => {
               placeholder="Looking for something?"
             />
           </div>
-          <CgSearch className="search-icon" />
+          {search.length > 0 ? (
+            <FaTimes
+              className="cancel"
+              onClick={() => dispatch(getSearch(""))}
+            />
+          ) : (
+            <CgSearch className="search-icon" />
+          )}
         </div>
         {/* <RecentSearch /> */}
 
         <>
           {search.length > 0 ? (
-            <div style={{marginTop: "20px"}} className="products">
-              {searchData.map((item: any) => (
-                <Product
-                  item={item}
-                  id={item.id}
-                  key={item.id}
-                  title={item.title}
-                  price={item.price}
-                  image={item.image1}
-                  handleCartitem={handleCartitem}
-                />
-              ))}
-            </div>
+            <>
+              <Trending />
+
+              <div style={{ marginTop: "20px" }} className="products">
+                {searchData.map((item: any) => (
+                  <Product
+                    item={item}
+                    id={item.id}
+                    key={item.id}
+                    title={item.title}
+                    price={item.price}
+                    image={item.image1}
+                    handleCartitem={handleCartitem}
+                    show={show}
+                  />
+                ))}
+              </div>
+            </>
           ) : (
             <Trending />
           )}

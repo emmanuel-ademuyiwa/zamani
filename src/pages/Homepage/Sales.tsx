@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import SalesItem from "./SalesItem";
 
-interface EachProduct {
+export interface EachProduct {
   key: number;
   id: number;
   title: string;

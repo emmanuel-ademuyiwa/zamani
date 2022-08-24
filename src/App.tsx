@@ -8,6 +8,7 @@ import SingleProduct from "./pages/Products/SingleProduct";
 import { useSelector } from "react-redux";
 import Cart from "./pages/Cart/Cart";
 import Checkout from "./pages/Checkout/Checkout";
+import Sales from "./pages/Sales/Sales";
 
 function App() {
     const currentItem = useSelector((state:any) => state.shop.currentItem);
@@ -19,6 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="products" element={<Products />} />
+            <Route path="sales" element={<Sales />} />
             <Route
               path="/detail/:id"
               element={!currentItem ? <Navigate to="/" /> : <SingleProduct />}
