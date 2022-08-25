@@ -9,70 +9,86 @@ import { EachProduct } from "../Homepage/Sales";
 
 const Sales = () => {
   const [cartitem, setCartitem] = useState(false);
- const [data, setData] = useState<EachProduct[]>([
-   {
-     key: 1,
-     id: 1,
-     title: "",
-     image1: " ",
-     price: 0,
-     saleDiscount: 0,
-   },
-   {
-     key: 2,
-     id: 2,
-     title: "",
-     image1: " ",
-     price: 0,
-     saleDiscount: 0,
-   },
-   {
-     key: 3,
-     id: 3,
-     title: "",
-     image1: " ",
-     price: 0,
-     saleDiscount: 0,
-   },
-   {
-     key: 4,
-     id: 4,
-     title: "",
-     image1: " ",
-     price: 0,
-     saleDiscount: 0,
-   },
-   {
-     key: 5,
-     id: 5,
-     title: "",
-     image1: " ",
-     price: 0,
-     saleDiscount: 0,
-   },
-   {
-     key: 6,
-     id: 6,
-     title: "",
-     image1: " ",
-     price: 0,
-     saleDiscount: 0,
-   },
- ]);  const search = useSelector((state: any) => state.shop.search);
+  const [loading, setLoading] = useState(false);
+
+  const [data, setData] = useState<EachProduct[]>([
+    {
+      key: 1,
+      id: 1,
+      title: "",
+      image1: " ",
+      price: 0,
+      saleDiscount: 0,
+    },
+    {
+      key: 2,
+      id: 2,
+      title: "",
+      image1: " ",
+      price: 0,
+      saleDiscount: 0,
+    },
+    {
+      key: 3,
+      id: 3,
+      title: "",
+      image1: " ",
+      price: 0,
+      saleDiscount: 0,
+    },
+    {
+      key: 4,
+      id: 4,
+      title: "",
+      image1: " ",
+      price: 0,
+      saleDiscount: 0,
+    },
+    {
+      key: 5,
+      id: 5,
+      title: "",
+      image1: " ",
+      price: 0,
+      saleDiscount: 0,
+    },
+    {
+      key: 6,
+      id: 6,
+      title: "",
+      image1: " ",
+      price: 0,
+      saleDiscount: 0,
+    },
+  ]);
+  const search = useSelector((state: any) => state.shop.search);
 
   function handleCartitem() {
     setCartitem(!cartitem);
   }
 
   useEffect(() => {
-    axios
-      .get(`https://thenelson.pythonanywhere.com/api/sales/?search=${search}`)
-      .then((res) => {
-        setData(res.data);
-      });
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const dataURL = `https://thenelson.pythonanywhere.com/api/sales/?search=${search}`;
+        const response = await axios.get(dataURL);
+        setData(response.data);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        console.log("Sorry something went wrong");
+      }
+    };
+    fetchData();
   }, [search]);
   return (
     <Layout>
+      {loading && (
+        <div className="loader--container">
+          <div className="loader"></div>
+        </div>
+      )}
       <div className="container">
         <ProductHeader />
 

@@ -24,6 +24,7 @@ const Search: React.FC<SearchProps> = ({ handlesearch }) => {
   const search = useSelector((state: any) => state.shop.search);
 
   const [show, setShow] = useState(true)
+  const [loading, setLoading] = useState(false);
 
   const [cartitem, setCartitem] = useState(false);
   const [searchData, setSearchData] = useState([]);
@@ -45,17 +46,28 @@ const Search: React.FC<SearchProps> = ({ handlesearch }) => {
   }, [cart, totalPrice, totalItems, setTotalItems, setTotalPrice]);
 
   useEffect(() => {
-    axios
-      .get(
-        `https://thenelson.pythonanywhere.com/api/products/?search=${search}`
-      )
-      .then((res) => {
-        setSearchData(res.data);
-      });
+    const fetchData = async () => {
+      try {
+        setLoading(true);
+        const dataURL = `https://thenelson.pythonanywhere.com/api/products/?search=${search}`;
+        const response = await axios.get(dataURL);
+        setSearchData(response.data);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        console.log("Sorry something went wrong");
+      }
+    };
+    fetchData();
   }, [search]);
 
   return (
     <div className="search">
+      {loading && (
+        <div className="loader--container">
+          <div className="loader"></div>
+        </div>
+      )}
       <div className="search-header">
         <MdArrowBackIosNew onClick={handlesearch} />
         <h6>Search</h6>

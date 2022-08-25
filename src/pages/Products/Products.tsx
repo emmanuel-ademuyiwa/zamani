@@ -23,6 +23,7 @@ import { useSelector } from "react-redux";
 
 const Products = () => {
   const [cartitem, setCartitem] = useState(false);
+  const [loading, setLoading] = useState(false)
   const products = useSelector((state: any) => state.shop.products);
   const [data, setData] = useState(products);
 
@@ -32,18 +33,37 @@ const Products = () => {
     setCartitem(!cartitem);
   }
 
+  // useEffect(() => {
+  //   axios
+  //     .get(
+  //       `https://thenelson.pythonanywhere.com/api/products/?search=${search}`
+  //     )
+  //     .then((res) => {
+  //       setData(res.data);
+  //     });
+  // }, [search]);
+
   useEffect(() => {
-    axios
-      .get(
-        `https://thenelson.pythonanywhere.com/api/products/?search=${search}`
-      )
-      .then((res) => {
-        setData(res.data);
-      });
-  }, [search]);
+    const fetchData = async () => {
+      try { 
+        setLoading(true)
+        const dataURL = `https://thenelson.pythonanywhere.com/api/products/?search=${search}`
+        const response = await axios.get(dataURL);
+        setData(response.data);
+        setLoading(false)
+      } catch (error) {
+        setLoading(false)
+        console.log("Sorry something went wrong")
+      }
+    }
+    fetchData()
+  }, [search])
 
   return (
     <Layout>
+      { loading && <div className="loader--container">
+        <div className="loader"></div>
+      </div>}
       <div className="container">
         <ProductHeader />
         {data.length > 0 ? (
